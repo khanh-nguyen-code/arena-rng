@@ -5,7 +5,7 @@
 #include<cmath>
 int length = 100000;
 int main() {
-	uint32_t seed[6] = {1,2,3,4,5,6};
+	int64_t seed[6] = {1,2,3,4,5,6};
 	auto gen = RNG(seed);
 	auto data = std::vector<double>(length);
 	for (int i=0; i<length; i++) {
