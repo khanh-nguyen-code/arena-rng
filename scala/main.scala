@@ -6,10 +6,7 @@ object main {
     // generate 100000 random numbers
     var seed: Array[Long] = Array.range(1, 7).map(x => x.toLong);
     var gen: RNG = new RNG(seed);
-    var data: Array[Double] = new Array[Double](length);
-    for (i <- 0 to length-1) {
-      data(i) = gen.next();
-    }
+    var data: Array[Double] = (new Array[Double](length)).map {case (x) => gen.next()};
     // sort data
     val sorted = data.sortWith((x, y) => x < y);
     // perform ks test
