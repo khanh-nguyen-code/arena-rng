@@ -8,9 +8,11 @@ int main() {
 	int64_t seed[6] = {1,2,3,4,5,6};
 	auto gen = RNG(seed);
 	auto data = std::vector<double>(length);
-	for (int i=0; i<length; i++) {
-		data[i] = gen.next();
-	}
+	std::generate(data.begin(), data.end(), 
+			[&gen] (void) -> double{
+				return gen.next();
+			}
+	);
 
 	std::sort(data.begin(), data.end());
 	auto& sorted = data;
