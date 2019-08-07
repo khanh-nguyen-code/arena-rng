@@ -4,7 +4,7 @@ class RNG:
     self.b = [0, seed[3], seed[4], seed[5]]
   def next(self):
     self.a[0] = (1403580*self.a[2] - 810728*self.a[3]) % 4294967087
-    self.b[0] = self.b[0] = (527612*self.b[1] - 1370589*self.b[3]) % 4294944443
+    self.b[0] = (527612*self.b[1] - 1370589*self.b[3]) % 4294944443
     z = (self.a[0] - self.b[0]) % 4294967087
 
     if z < 0:
