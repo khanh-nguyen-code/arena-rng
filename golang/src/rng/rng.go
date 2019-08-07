@@ -22,7 +22,7 @@ func NewRNG(seed [6]int64) RNG {
 func (this *rng) Next() float64 {
 	this.a[0] = (1403580*this.a[2] - 810728*this.a[3]) % 4294967087
 	this.b[0] = (527612*this.b[1] - 1370589*this.b[3]) % 4294944443
-	var z int64 = (this.a[0] - this.b[0]) % 4294967087
+	var z = int64((this.a[0] - this.b[0]) % 4294967087)
 	if z < 0 {
 		z += 429467087
 	}
