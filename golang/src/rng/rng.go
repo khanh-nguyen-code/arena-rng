@@ -12,15 +12,10 @@ type rng struct {
 
 // NewRNG : create new RNG
 func NewRNG(seed [6]int64) RNG {
-	r := rng{}
-	r.a[0] = 0
-	r.a[1] = seed[0]
-	r.a[2] = seed[1]
-	r.a[3] = seed[2]
-	r.b[0] = 0
-	r.b[1] = seed[3]
-	r.b[2] = seed[4]
-	r.b[3] = seed[5]
+	r := rng{
+		[4]int64{0, seed[0], seed[1], seed[2]},
+		[4]int64{0, seed[3], seed[4], seed[5]},
+	}
 	return RNG(&r)
 }
 
@@ -35,7 +30,7 @@ func (r *rng) Next() float64 {
 	if z > 0 {
 		u = float64(z) / 4294967087.0
 	} else {
-		u = 4294967087.0 / 4294967088
+		u = 4294967087.0 / 4294967088.0
 	}
 	r.a[3] = r.a[2]
 	r.a[2] = r.a[1]
