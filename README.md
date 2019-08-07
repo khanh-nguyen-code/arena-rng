@@ -2,4 +2,4 @@
 
 Arena Random Number Generator
 
-A realiable pseudo random number generator from Arena Simulation package
+A reliable pseudo random number generator from Arena Simulation package written in various languages
