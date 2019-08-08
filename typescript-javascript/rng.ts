@@ -5,7 +5,7 @@ class RNG {
     this.a = [0, seed[0], seed[1], seed[2]]
     this.b = [0, seed[3], seed[4], seed[5]]
   }
-  public next() {
+  public Next() {
     this.a[0] = (1403580*this.a[2] - 810728*this.a[3]) % 4294967087;
     this.b[0] = (527612*this.b[1] - 1370589*this.b[3]) % 4294944443;
     let z = (this.a[0] - this.b[0]) % 4294967087;
@@ -30,7 +30,7 @@ function main() {
   let seed = [1, 2, 3, 4, 5, 6]
   let gen = new RNG(seed)
   for (let i=0; i<10; i++) {
-    console.log(gen.next())
+    console.log(gen.Next())
   }
 }
 

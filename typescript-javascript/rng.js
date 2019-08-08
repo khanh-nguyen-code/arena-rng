@@ -3,7 +3,7 @@ var RNG = /** @class */ (function () {
         this.a = [0, seed[0], seed[1], seed[2]];
         this.b = [0, seed[3], seed[4], seed[5]];
     }
-    RNG.prototype.next = function () {
+    RNG.prototype.Next = function () {
         this.a[0] = (1403580 * this.a[2] - 810728 * this.a[3]) % 4294967087;
         this.b[0] = (527612 * this.b[1] - 1370589 * this.b[3]) % 4294944443;
         var z = (this.a[0] - this.b[0]) % 4294967087;
@@ -28,7 +28,7 @@ function main() {
     var seed = [1, 2, 3, 4, 5, 6];
     var gen = new RNG(seed);
     for (var i = 0; i < 10; i++) {
-        console.log(gen.next());
+        console.log(gen.Next());
     }
 }
 main();
