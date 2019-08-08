@@ -6,7 +6,7 @@ public class Main {
     }
     RNG gen = new RNG(seed);
     for (int i=0; i<10; i++) {
-      System.out.println(gen.next());
+      System.out.println(gen.Next());
     }
   }
 }

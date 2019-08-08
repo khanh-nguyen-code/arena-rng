@@ -12,7 +12,7 @@ class RNG {
     b(2) = seed(4) % 4294967087L;
     b(3) = seed(5) % 4294967087L;
   }
-  def next(): Double = {
+  def Next(): Double = {
     // arena RNG
     a(0) = (1403580L*a(2) - 810728L*a(3)) % 4294967087L;
     b(0) = (527612L*b(1) - 1370589L*b(3)) % 4294944443L;
