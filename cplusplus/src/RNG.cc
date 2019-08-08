@@ -1,4 +1,4 @@
-#include<RNG.hh>
+#include"RNG.hh"
 RNG::RNG(const std::array<int64_t, 6>& seed) {
 		a[0] = 0;
 		a[1] = seed[0];
