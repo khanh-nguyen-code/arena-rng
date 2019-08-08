@@ -10,10 +10,10 @@ struct rng {
   int64_t b[4];
 };
 struct rng_trait {
-  RNG (*new)(int64_t seed[6]);
+  RNG (*make)(int64_t seed[6]);
   double (*next)(RNG* this);
 };
-RNG rng_new(int64_t seed[6]);
+RNG rng_make(int64_t seed[6]);
 double rng_next(RNG* this);
 RNG_TRAIT _RNG;
 #endif

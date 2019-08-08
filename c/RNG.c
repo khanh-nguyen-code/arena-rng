@@ -1,6 +1,6 @@
 #include"RNG.h"
 #include<stdlib.h>
-RNG rng_new(int64_t seed[6]) {
+RNG rng_make(int64_t seed[6]) {
   RNG this;
   this.a[0] = 0;
   this.a[1] = seed[0];
@@ -28,6 +28,6 @@ double rng_next(RNG* this) {
 	return u;
 }
 struct rng_trait _RNG = {
-  rng_new,
+  rng_make,
   rng_next
 };
