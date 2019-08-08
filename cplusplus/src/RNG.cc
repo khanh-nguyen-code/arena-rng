@@ -1,5 +1,5 @@
 #include<RNG.hh>
-RNG::RNG(int64_t *seed) {
+RNG::RNG(const std::array<int64_t, 6>& seed) {
 		a[0] = 0;
 		a[1] = seed[0];
 		a[2] = seed[1];
