@@ -1,6 +1,336 @@
-Compiled from "RNG.scala"
-public class RNG {
+Classfile /home/khanh/programming/random-number-generator/java-scala/RNG.class
+  Last modified Aug 8, 2019; size 1324 bytes
+  MD5 checksum f8eb42ec8980c0b7374e58df798e6bd0
+  Compiled from "RNG.scala"
+public class RNG
+  minor version: 0
+  major version: 50
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Utf8               RNG
+   #2 = Class              #1             // RNG
+   #3 = Utf8               java/lang/Object
+   #4 = Class              #3             // java/lang/Object
+   #5 = Utf8               RNG.scala
+   #6 = Utf8               Lscala/reflect/ScalaSignature;
+   #7 = Utf8               bytes
+   #8 = Utf8               2A!\t!KT$\r\tqP3naRLhh1CAA!\"AM\r\1\n-A!AB!osJ+g\rCa\"=S:LGOAA!1!Q!\nM\t!\tQ1BA\t\t%O]1z!\t9q#\t!Aj8hQ)Q'\t!\rCA;!)ada'!1/Z3e\"\"qW\r;\t\"aB\nB!A#pk\ndW\r
+   #9 = Utf8               a
+  #10 = Utf8               [J
+  #11 = Utf8               b
+  #12 = Utf8               next
+  #13 = Utf8               ()D
+  #14 = NameAndType        #9:#10         // a:[J
+  #15 = Fieldref           #2.#14         // RNG.a:[J
+  #16 = Long               1403580l
+  #18 = Long               810728l
+  #20 = Long               4294967087l
+  #22 = NameAndType        #11:#10        // b:[J
+  #23 = Fieldref           #2.#22         // RNG.b:[J
+  #24 = Long               527612l
+  #26 = Long               1370589l
+  #28 = Long               4294944443l
+  #30 = Long               4294967088l
+  #32 = Utf8               this
+  #33 = Utf8               LRNG;
+  #34 = Utf8               z
+  #35 = Utf8               J
+  #36 = Utf8               u
+  #37 = Utf8               D
+  #38 = Utf8               <init>
+  #39 = Utf8               ()V
+  #40 = NameAndType        #38:#39        // "<init>":()V
+  #41 = Methodref          #4.#40         // java/lang/Object."<init>":()V
+  #42 = Utf8               ([J)V
+  #43 = Methodref          #2.#40         // RNG."<init>":()V
+  #44 = Utf8               seed
+  #45 = Utf8               Code
+  #46 = Utf8               LocalVariableTable
+  #47 = Utf8               LineNumberTable
+  #48 = Utf8               StackMapTable
+  #49 = Utf8               SourceFile
+  #50 = Utf8               RuntimeVisibleAnnotations
+  #51 = Utf8               ScalaSig
+{
   public double next();
+    descriptor: ()D
+    flags: ACC_PUBLIC
+    Code:
+      stack=8, locals=5, args_size=1
+         0: aload_0
+         1: getfield      #15                 // Field a:[J
+         4: iconst_0
+         5: ldc2_w        #16                 // long 1403580l
+         8: aload_0
+         9: getfield      #15                 // Field a:[J
+        12: iconst_2
+        13: laload
+        14: lmul
+        15: ldc2_w        #18                 // long 810728l
+        18: aload_0
+        19: getfield      #15                 // Field a:[J
+        22: iconst_3
+        23: laload
+        24: lmul
+        25: lsub
+        26: ldc2_w        #20                 // long 4294967087l
+        29: lrem
+        30: lastore
+        31: aload_0
+        32: getfield      #23                 // Field b:[J
+        35: iconst_0
+        36: ldc2_w        #24                 // long 527612l
+        39: aload_0
+        40: getfield      #23                 // Field b:[J
+        43: iconst_1
+        44: laload
+        45: lmul
+        46: ldc2_w        #26                 // long 1370589l
+        49: aload_0
+        50: getfield      #23                 // Field b:[J
+        53: iconst_3
+        54: laload
+        55: lmul
+        56: lsub
+        57: ldc2_w        #28                 // long 4294944443l
+        60: lrem
+        61: lastore
+        62: aload_0
+        63: getfield      #15                 // Field a:[J
+        66: iconst_0
+        67: laload
+        68: aload_0
+        69: getfield      #23                 // Field b:[J
+        72: iconst_0
+        73: laload
+        74: lsub
+        75: ldc2_w        #20                 // long 4294967087l
+        78: lrem
+        79: lstore_1
+        80: lload_1
+        81: lload_1
+        82: lconst_0
+        83: lcmp
+        84: ifge          93
+        87: ldc2_w        #20                 // long 4294967087l
+        90: goto          94
+        93: lconst_0
+        94: ladd
+        95: lstore_1
+        96: lload_1
+        97: lconst_0
+        98: lcmp
+        99: ifle          112
+       102: lload_1
+       103: l2d
+       104: ldc2_w        #20                 // long 4294967087l
+       107: l2d
+       108: ddiv
+       109: goto          121
+       112: ldc2_w        #20                 // long 4294967087l
+       115: l2d
+       116: ldc2_w        #30                 // long 4294967088l
+       119: l2d
+       120: ddiv
+       121: dstore_3
+       122: aload_0
+       123: getfield      #15                 // Field a:[J
+       126: iconst_3
+       127: aload_0
+       128: getfield      #15                 // Field a:[J
+       131: iconst_2
+       132: laload
+       133: lastore
+       134: aload_0
+       135: getfield      #15                 // Field a:[J
+       138: iconst_2
+       139: aload_0
+       140: getfield      #15                 // Field a:[J
+       143: iconst_1
+       144: laload
+       145: lastore
+       146: aload_0
+       147: getfield      #15                 // Field a:[J
+       150: iconst_1
+       151: aload_0
+       152: getfield      #15                 // Field a:[J
+       155: iconst_0
+       156: laload
+       157: lastore
+       158: aload_0
+       159: getfield      #23                 // Field b:[J
+       162: iconst_3
+       163: aload_0
+       164: getfield      #23                 // Field b:[J
+       167: iconst_2
+       168: laload
+       169: lastore
+       170: aload_0
+       171: getfield      #23                 // Field b:[J
+       174: iconst_2
+       175: aload_0
+       176: getfield      #23                 // Field b:[J
+       179: iconst_1
+       180: laload
+       181: lastore
+       182: aload_0
+       183: getfield      #23                 // Field b:[J
+       186: iconst_1
+       187: aload_0
+       188: getfield      #23                 // Field b:[J
+       191: iconst_0
+       192: laload
+       193: lastore
+       194: dload_3
+       195: dreturn
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0     196     0  this   LRNG;
+           80     116     1     z   J
+          122      74     3     u   D
+      LineNumberTable:
+        line 17: 0
+        line 18: 31
+        line 19: 62
+        line 20: 80
+        line 21: 96
+        line 22: 102
+        line 24: 112
+        line 21: 121
+        line 25: 122
+        line 26: 134
+        line 27: 146
+        line 28: 158
+        line 29: 170
+        line 30: 182
+        line 32: 194
+      StackMapTable: number_of_entries = 4
+        frame_type = 255 /* full_frame */
+          offset_delta = 93
+          locals = [ class RNG, long ]
+          stack = [ long ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 0
+          locals = [ class RNG, long ]
+          stack = [ long, long ]
+        frame_type = 17 /* same */
+        frame_type = 72 /* same_locals_1_stack_item */
+          stack = [ double ]
+
   public RNG();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #41                 // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: iconst_4
+         6: newarray       long
+         8: putfield      #15                 // Field a:[J
+        11: aload_0
+        12: iconst_4
+        13: newarray       long
+        15: putfield      #23                 // Field b:[J
+        18: return
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      19     0  this   LRNG;
+      LineNumberTable:
+        line 1: 0
+        line 2: 4
+        line 3: 11
+
   public RNG(long[]);
+    descriptor: ([J)V
+    flags: ACC_PUBLIC
+    Code:
+      stack=6, locals=2, args_size=2
+         0: aload_0
+         1: invokespecial #43                 // Method "<init>":()V
+         4: aload_0
+         5: getfield      #15                 // Field a:[J
+         8: iconst_0
+         9: lconst_0
+        10: lastore
+        11: aload_0
+        12: getfield      #15                 // Field a:[J
+        15: iconst_1
+        16: aload_1
+        17: iconst_0
+        18: laload
+        19: ldc2_w        #20                 // long 4294967087l
+        22: lrem
+        23: lastore
+        24: aload_0
+        25: getfield      #15                 // Field a:[J
+        28: iconst_2
+        29: aload_1
+        30: iconst_1
+        31: laload
+        32: ldc2_w        #20                 // long 4294967087l
+        35: lrem
+        36: lastore
+        37: aload_0
+        38: getfield      #15                 // Field a:[J
+        41: iconst_3
+        42: aload_1
+        43: iconst_2
+        44: laload
+        45: ldc2_w        #20                 // long 4294967087l
+        48: lrem
+        49: lastore
+        50: aload_0
+        51: getfield      #23                 // Field b:[J
+        54: iconst_0
+        55: lconst_0
+        56: lastore
+        57: aload_0
+        58: getfield      #23                 // Field b:[J
+        61: iconst_1
+        62: aload_1
+        63: iconst_3
+        64: laload
+        65: ldc2_w        #20                 // long 4294967087l
+        68: lrem
+        69: lastore
+        70: aload_0
+        71: getfield      #23                 // Field b:[J
+        74: iconst_2
+        75: aload_1
+        76: iconst_4
+        77: laload
+        78: ldc2_w        #20                 // long 4294967087l
+        81: lrem
+        82: lastore
+        83: aload_0
+        84: getfield      #23                 // Field b:[J
+        87: iconst_3
+        88: aload_1
+        89: iconst_5
+        90: laload
+        91: ldc2_w        #20                 // long 4294967087l
+        94: lrem
+        95: lastore
+        96: return
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      97     0  this   LRNG;
+            0      97     1  seed   [J
+      LineNumberTable:
+        line 5: 0
+        line 6: 4
+        line 7: 11
+        line 8: 24
+        line 9: 37
+        line 10: 50
+        line 11: 57
+        line 12: 70
+        line 13: 83
 }
+SourceFile: "RNG.scala"
+RuntimeVisibleAnnotations:
+  0: #6(#7=s#8)
+Error: unknown attribute
+  ScalaSig: length = 0x3
+   05 00 00
