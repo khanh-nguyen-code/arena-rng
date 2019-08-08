@@ -1,4 +1,4 @@
-#include<RNG.h>
+#include<RNG.hh>
 #include<iostream>
 int main() {
 	int64_t seed[6] = {1,2,3,4,5,6};

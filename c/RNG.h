@@ -1,0 +1,18 @@
+#ifndef _RNG_H_
+#define _RNG_H_
+#include<stdint.h>
+struct rng;
+struct rng_trait;
+typedef struct rng* RNG;
+struct rng {
+  int64_t a[4];
+  int64_t b[4];
+};
+struct rng_trait {
+  RNG (*new)(int64_t seed[6]);
+  double (*next)(RNG this);
+};
+RNG rng_new(int64_t seed[6]);
+double rng_next(RNG this);
+struct rng_trait _RNG;
+#endif
