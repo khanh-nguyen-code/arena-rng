@@ -3,7 +3,7 @@ class RNG:
     self.a = [0, seed[0], seed[1], seed[2]]
     self.b = [0, seed[3], seed[4], seed[5]]
 
-  def next(self):
+  def Next(self):
     self.a[0] = (1403580*self.a[2] - 810728*self.a[3]) % 4294967087
     self.b[0] = (527612*self.b[1] - 1370589*self.b[3]) % 4294944443
     z = (self.a[0] - self.b[0]) % 4294967087
@@ -29,7 +29,7 @@ def main():
   seed = [1, 2, 3, 4, 5, 6]
   gen = RNG(seed)
   for i in range(10):
-    print(gen.next())
+    print(gen.Next())
 
 if __name__ == "__main__":
   main()
