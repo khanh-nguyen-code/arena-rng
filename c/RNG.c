@@ -1,15 +1,15 @@
 #include"RNG.h"
 #include<stdlib.h>
-RNG rng_make(int64_t seed[6]) {
-  RNG this;
-  this.a[0] = 0;
-  this.a[1] = seed[0];
-  this.a[2] = seed[1];
-  this.a[3] = seed[2];
-  this.b[0] = 0;
-  this.b[1] = seed[3];
-  this.b[2] = seed[4];
-  this.b[3] = seed[5];
+RNG* rng_make(int64_t seed[6]) {
+  RNG *this = malloc(sizeof(RNG));
+  this->a[0] = 0;
+  this->a[1] = seed[0];
+  this->a[2] = seed[1];
+  this->a[3] = seed[2];
+  this->b[0] = 0;
+  this->b[1] = seed[3];
+  this->b[2] = seed[4];
+  this->b[3] = seed[5];
   return this;
 }
 double rng_next(RNG* this) {
