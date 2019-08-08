@@ -1,4 +1,4 @@
-#include"RNG.h"
+#include"RNG-private.h"
 #include<stdlib.h>
 RNG* rng_new(int64_t seed[6]) {
   RNG *this = malloc(sizeof(RNG));
