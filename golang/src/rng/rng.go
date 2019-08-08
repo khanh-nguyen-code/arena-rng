@@ -1,10 +1,5 @@
 package rng
 
-// RNG : Random Number Generator
-type RNG interface {
-	Next() float64
-}
-
 type rng struct {
 	a [4]int64
 	b [4]int64
