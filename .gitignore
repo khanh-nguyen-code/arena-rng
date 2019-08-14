@@ -1,6 +1,2 @@
-a.out
 *.swp
-*.so
-*.o
-*.class
 .vscode/*
