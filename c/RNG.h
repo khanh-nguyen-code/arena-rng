@@ -1,11 +1,9 @@
-#ifndef _RNG_PUBLIC_H_
-#define _RNG_PUBLIC_H_
+#ifndef _RNG_H_
+#define _RNG_H_
 #include<stdint.h>
-typedef struct rng RNG;
-typedef struct rng_trait RNG_TRAIT;
-struct rng_trait {
-  RNG* (*New)(int64_t seed[6]);
-  double (*Next)(RNG* this);
+struct rng_state {
+  int64_t a[4];
+  int64_t b[4];
 };
-RNG_TRAIT _RNG;
+double rng_next(struct rng_state*);
 #endif

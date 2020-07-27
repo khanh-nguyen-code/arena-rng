@@ -1,9 +1,11 @@
-#include<RNG.h>
+#include"rng.h"
 #include<stdio.h>
+struct rng_state rng = {
+  {0, 1, 2, 3},
+  {4, 5, 6, 7},
+};
 int main() {
-  int64_t seed[6] = {1, 2, 3, 4, 5, 6};
-  RNG* gen = _RNG.New(seed);
   for (int i=0; i<10; i++) {
-    printf("%f\n", _RNG.Next(gen));
+    printf("%f\n", rng_next(&rng));
   }
 }

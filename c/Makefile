@@ -1,4 +1,4 @@
 all:
-	gcc -o a.out main.c ./libRNG.so -I.
+	gcc -o a.out main.c rng.c -I.
 clean:
 	rm -f *.out *.so
