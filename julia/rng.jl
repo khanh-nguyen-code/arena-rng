@@ -2,6 +2,7 @@ module RNG
     struct ArenaIter
         a::NTuple{3, Int64}
         b::NTuple{3, Int64}
+        # constructor
         function ArenaIter(a::NTuple{3, Int64}, b::NTuple{3, Int64})
             new(a, b)
         end
