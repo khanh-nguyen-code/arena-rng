@@ -18,14 +18,10 @@ public final class ArenaRNG implements RNG {
         z += (z < 0) ? 4294967087L : 0; // positivify
         double u = (z > 0) ? ((double)z)/4294967087.0 : 4294967087.0 / 4294967088.0;
         // shift
-        a[3] = a[2];
-        a[2] = a[1];
-        a[1] = a[0];
-        b[3] = b[2];
-        b[2] = b[1];
-        b[1] = b[0];
+        a = new long[]{0, a[0], a[1], a[2]};
+        b = new long[]{0, b[0], b[1], b[2]};
         return u;
     }
-    private final long[] a;
-    private final long[] b;
+    private long[] a;
+    private long[] b;
 }
