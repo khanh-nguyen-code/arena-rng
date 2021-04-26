@@ -3,4 +3,4 @@ project(cpp)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(cpp main.cpp rng.h)
+add_executable(cpp main.cpp arena_rng.h)
