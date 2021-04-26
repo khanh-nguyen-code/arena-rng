@@ -36,12 +36,8 @@ double arena_rng::next() {
     z += (z < 0) ? 4294967087 : 0; // positivify
     double u = (z > 0) ? static_cast<double>(z)/4294967087.0 : 4294967087.0 / 4294967088.0;
     // shift
-    a[3] = a[2];
-    a[2] = a[1];
-    a[1] = a[0];
-    b[3] = b[2];
-    b[2] = b[1];
-    b[1] = b[0];
+    a = {0, a[0], a[1], a[2]};
+    b = {0, b[0], b[1], b[2]};
     return u;
 }
 #endif // _RNG_H_
