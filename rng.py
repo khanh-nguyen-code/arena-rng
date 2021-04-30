@@ -1,20 +1,21 @@
 from typing import Iterator
 
 
-def ArenaRNG(*args: int) -> Iterator[float]:
+def RNG(*args: int) -> Iterator[float]:
     assert len(args) == 6, "seed must be 6 non-negative integers less than 2^32"
     for seed in args:
         assert isinstance(seed, int), "seed must be 6 non-negative integers less than 2^32"
-        assert 0 <= seed < 2**32, "seed must be 6 non-negative integers less than 2^32"
+        assert 0 <= seed < 2 ** 32, "seed must be 6 non-negative integers less than 2^32"
 
     a_list = [*args[0:3]]
     b_list = [*args[3:6]]
     while True:
+        # each component always in range [0, 2^64)
         a = (1403580 * a_list[1] + (4294967087 - 810728) * a_list[2]) % 4294967087
         b = (527612 * b_list[0] + (4294944443 - 1370589) * b_list[2]) % 4294944443
         # a, b always in range [0, 2^32)
-        assert 0 <= a < 2**32 and 0 <= b < 2**32
-        z = (a + 4294967087 - b) % 4294967087 + 1
+        assert 0 <= a < 2 ** 32 and 0 <= b < 2 ** 32
+        z = (a + 4294967087 - b) % 4294967087 + 1  # shifted by +1 as compare to arena
         # z always in range [1, 4294967087]
         assert 1 <= z <= 4294967087
         u = float(z) / 4294967088.0
@@ -25,6 +26,6 @@ def ArenaRNG(*args: int) -> Iterator[float]:
 
 
 if __name__ == "__main__":
-    rng = ArenaRNG(1, 2, 3, 4, 5, 6)
+    rng = RNG(1, 2, 3, 4, 5, 6)
     for i in range(10):
         print(next(rng))
