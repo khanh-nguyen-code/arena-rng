@@ -2,18 +2,14 @@ module RNG
     struct State
         a::NTuple{3, UInt64}
         b::NTuple{3, UInt64}
-        # inner constructor
-        function State(a::NTuple{3, UInt64}, b::NTuple{3, UInt64})::State
-            new(a, b)
-        end
     end
 
     # constructor
     function New(seed::Vararg{Int, 6})::State
-        for i in 1:6
-            @assert 0 ≤ seed[i] < 2^32 "seed[$i] must be in range [0, 2^32)"
-        end
-        State((UInt64(seed[1]), UInt64(seed[2]), UInt64(seed[3])), (UInt64(seed[4]), UInt64(seed[5]), UInt64(seed[6])))
+        State(
+            map(n -> UInt64(n) % 2^32, seed[1:3]),
+            map(n -> UInt64(n) % 2^32, seed[4:6]),
+        )
     end
 
     function next(state::State)::Tuple{Float64, State}
