@@ -4,8 +4,7 @@ module RNG
         b::NTuple{3, UInt64}
     end
 
-    # constructor
-    function New(seed::Vararg{Int, 6})::State
+    function new(seed::Vararg{Int, 6})::State
         State(
             map(n -> UInt64(n) % 2^32, seed[1:3]),
             map(n -> UInt64(n) % 2^32, seed[4:6]),
@@ -24,18 +23,10 @@ module RNG
         # return
         next_state, u
     end
-
-    # iteration
-    function Base.iterate(iter::State)::Union{Nothing, Tuple{Float64, State}}
-        next(iter)
-    end
-    function Base.iterate(iter::State, state::State)::Union{Nothing, Tuple{Float64, State}}
-        next(state)
-    end
 end
 
 function main()
-    state = RNG.New(1, 2, 3, 4, 5, 6)
+    state = RNG.new(1, 2, 3, 4, 5, 6)
     for i in 1:100
         state, u = RNG.next(state)
         println("$i: $u")

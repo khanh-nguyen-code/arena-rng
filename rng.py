@@ -1,29 +1,34 @@
 from typing import Iterator
+from dataclasses import dataclass
 
+@dataclass
+class State:
+    a: tuple[int, int, int]
+    b: tuple[int, int, int]
 
-def RNG(*args: int) -> Iterator[float]:
-    assert len(args) == 6, "seed must be 6 non-negative integers less than 2^32"
-    for seed in args:
-        assert isinstance(seed, int), "seed must be 6 non-negative integers less than 2^32"
-        assert 0 <= seed < 2 ** 32, "seed must be 6 non-negative integers less than 2^32"
+def new(seed: tuple[int, int, int, int, int, int]) -> State:
+    return State(
+        a=seed[0:3],
+        b=seed[3:6],
+    )
 
-    a_list = [*args[0:3]]
-    b_list = [*args[3:6]]
-    while True:
-        # each component always in range [0, 2^64)
-        # a, b always in range [0, 2^32)
-        a = (1403580 * a_list[1] + (4294967087 - 810728) * a_list[2]) % 4294967087
-        b = (527612 * b_list[0] + (4294944443 - 1370589) * b_list[2]) % 4294944443
-        # z always in range [1, 4294967087]
-        z = (a + 4294967087 - b) % 4294967087 + 1  # shifted by +1 comparing to arena
-        u = float(z) / 4294967088.0
-        # shift
-        a_list = [a, *a_list[0:2]]
-        b_list = [b, *b_list[0:2]]
-        yield u
-
+def next(state: State) -> tuple[State, float]:
+    # each component always in range [0, 2^64)
+    # a, b always in range [0, 2^32)
+    a = (1403580 * state.a[1] + (4294967087 - 810728) * state.a[2]) % 4294967087
+    b = (527612 * state.b[0] + (4294944443 - 1370589) * state.b[2]) % 4294944443
+    # z always in range [1, 4294967087]
+    z = (a + 4294967087 - b) % 4294967087 + 1  # shifted by +1 comparing to arena
+    u = float(z) / 4294967088.0
+    next_state = State(
+        a=(a, *state.a[0:2]),
+        b=(b, *state.b[0:2]),
+    )
+    # return
+    return next_state, u
 
 if __name__ == "__main__":
-    rng = RNG(1, 2, 3, 4, 5, 6)
-    for i, rand in zip(range(100), rng):
-        print(f"{i}: {rand}")
+    state = new((1, 2, 3, 4, 5, 6))
+    for i in range(100):
+        state, u = next(state)
+        print(f"{i}: {u}")
